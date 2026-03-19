@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Disable favicon completely -->
+    <link rel="icon" href="data:," />
+    <script>
+      const icons = document.querySelectorAll('link[rel~="icon"]');
+      icons.forEach(icon => icon.remove());
+
+      const blankFavicon = document.createElement('link');
+      blankFavicon.rel = 'icon';
+      blankFavicon.href = 'data:,';
+      document.head.appendChild(blankFavicon);
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title -->
+    <title>SuPrathon 2.0 - India's Biggest Virtual Hackathon</title>
+
+    <!-- SEO Meta -->
+    <meta
+      name="description"
+      content="Join SuPrathon 2.0, India's biggest virtual hackathon. 36 hours of innovation, collaboration, and building the future."
+    />
+    <meta
+      name="keywords"
+      content="hackathon, virtual hackathon, India, SuPrathon, coding, developers, innovation"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="SuPrathon 2.0 - India's Biggest Virtual Hackathon" />
+    <meta
+      property="og:description"
+      content="Join 300,000+ students in 36 hours of non-stop innovation."
+    />
+    <meta property="og:type" content="website" />
+
+     <!-- Favicon (small image next to title) -->
+    <link rel="icon" type="image/png" href="/suprathon.jpeg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SuPrathon 2.0 - India's Biggest Virtual Hackathon" />
+    <meta
+      name="twitter:description"
+      content="Join 300,000+ students in 36 hours of non-stop innovation."
+    />
+    <meta name="twitter:image" content="/suprathon.jpeg" />
+
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
