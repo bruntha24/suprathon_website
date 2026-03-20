@@ -3,7 +3,7 @@ import { Users, Clock, MapPin, CircuitBoard, Award, Globe, Trophy } from "lucide
 
 const AchievementsSection = () => {
   const stats = [
-    { icon: Users, value: "300,000+", label: "Students Reached", color: "text-amber-400" },
+    { icon: Users, value: "500,000+", label: "Students Reached", color: "text-amber-400" },
     { icon: Clock, value: "36 Hours", label: "Non-Stop Innovation", color: "text-amber-400" },
     { icon: MapPin, value: "28+", label: "States Participating", color: "text-amber-400" },
     { icon: CircuitBoard, value: "4", label: "Innovation Tracks", color: "text-amber-400" },
@@ -113,3 +113,4 @@ const AchievementsSection = () => {
 };
 
 export default AchievementsSection;
+
