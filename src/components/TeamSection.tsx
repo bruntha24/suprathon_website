@@ -11,29 +11,31 @@ interface TeamMember {
   image?: string;
 }
 
-/* 🌪️ ULTRA HEAVY CONFETTI SHOWER */
+/* 🌪️ ULTRA HEAVY CONFETTI SHOWER (FIXED TIMING) */
 const ConfettiBurst = () => {
   const colors = [
-    "#facc15",
-    "#22d3ee",
-    "#fb7185",
-    "#a78bfa",
-    "#34d399",
-    "#f97316",
-    "#38bdf8",
-    "#e879f9",
+    "#facc15", "#fde047", "#eab308",
+    "#22d3ee", "#06b6d4", "#67e8f9",
+    "#fb7185", "#f43f5e", "#fda4af",
+    "#a78bfa", "#8b5cf6", "#c4b5fd",
+    "#34d399", "#10b981", "#6ee7b7",
+    "#f97316", "#fb923c", "#fdba74",
+    "#38bdf8", "#0ea5e9", "#7dd3fc",
+    "#e879f9", "#d946ef", "#f5d0fe",
+    "#ffffff", "#cbd5f5", "#94a3b8"
   ];
 
   return (
     <div className="absolute inset-0 pointer-events-none z-50 overflow-visible">
-      {[...Array(220)].map((_, i) => {
-        const size = Math.random() * 6 + 4; // 4–10px
+      {[...Array(350)].map((_, i) => {
+        const size = Math.random() * 6 + 4;
         const isLong = Math.random() > 0.6;
+        const isCircle = Math.random() > 0.5;
 
         return (
           <motion.div
             key={i}
-            className="absolute rounded-sm"
+            className={`absolute ${isCircle ? "rounded-full" : "rounded-sm"}`}
             style={{
               width: size,
               height: isLong ? size * 2 : size,
@@ -48,13 +50,14 @@ const ConfettiBurst = () => {
               opacity: 1,
             }}
             animate={{
-              y: 520,
-              x: Math.random() * 240 - 120,
-              rotate: Math.random() * 1440,
+              y: 700,
+              x: Math.random() * 220 - 110,
+              rotate: Math.random() * 1500,
               opacity: 0,
             }}
             transition={{
-              duration: 2.5 + Math.random() * 2,
+              duration: 5 + Math.random() * 1.5, // ✅ tighter range (5–6.5s)
+              delay: Math.random() * 0.5,        // ✅ less delay randomness
               ease: "easeOut",
             }}
           />
@@ -91,7 +94,8 @@ const TeamSection = () => {
       prev.map((m) => (m.id === id ? { ...m, revealed: true } : m))
     );
 
-    setTimeout(() => setBurstId(null), 3000); // longer celebration
+    // ✅ MATCHED WITH CONFETTI MAX DURATION
+    setTimeout(() => setBurstId(null), 7000);
   };
 
   return (
@@ -130,7 +134,7 @@ const TeamSection = () => {
               {burstId === member.id && (
                 <>
                   <ConfettiBurst />
-                  <ConfettiBurst /> {/* double burst for extra impact */}
+                  <ConfettiBurst />
                 </>
               )}
 
